@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Europa em Família · Junho 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDE3CC;--card:#FAF4E8;--navy:#1A2335;--navy2:#243047;
+  --terra:#C4622D;--gold:#C49432;--gold-l:#E8D499;--olive:#5C7150;
+  --sky:#2A5EA0;--ink:#2B1D0E;--muted:#7A6A55;--border:#D4C4A8;
+  --amber:#C47A1A;--amber-bg:#FFF4E2;--event:#F5EDD4;
+  --fw: 'Cormorant Garamond', Georgia, serif;
+  --fb: 'Lora', Georgia, serif;
+  --fu: 'Jost', system-ui, sans-serif;
+  --sw: 240px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);display:flex;min-height:100vh;line-height:1.65}
+
+/* ─── SIDEBAR ─────────────────────────── */
+#sb{position:fixed;top:0;left:0;width:var(--sw);height:100vh;background:var(--navy);overflow-y:auto;z-index:100;display:flex;flex-direction:column}
+#sb::-webkit-scrollbar{width:3px}
+#sb::-webkit-scrollbar-thumb{background:var(--navy2)}
+.sb-brand{padding:1.75rem 1.5rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.sb-brand h1{font-family:var(--fw);font-size:1.1rem;font-weight:400;color:var(--gold-l);line-height:1.25;letter-spacing:.02em}
+.sb-brand h1 em{font-style:italic}
+.sb-brand p{font-family:var(--fu);font-size:.58rem;text-transform:uppercase;letter-spacing:.14em;color:rgba(203,213,232,.35);margin-top:.35rem}
+.sb-city{padding:.6rem 1.5rem .1rem}
+.sb-city-lbl{font-family:var(--fu);font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);opacity:.8;margin-bottom:.1rem;display:flex;align-items:center;gap:.4rem}
+.sb-city-lbl::before{content:'';display:inline-block;width:14px;height:1px;background:var(--gold);opacity:.5}
+.sb-days{list-style:none}
+.sb-days a{display:flex;align-items:center;gap:.5rem;padding:.22rem 1.5rem .22rem 2rem;font-family:var(--fu);font-size:.7rem;color:rgba(203,213,232,.55);text-decoration:none;transition:color .18s,background .18s}
+.sb-days a:hover,.sb-days a.on{color:var(--gold-l);background:rgba(255,255,255,.04)}
+.sb-dot{width:5px;height:5px;border-radius:50%;background:rgba(203,213,232,.2);flex-shrink:0;transition:background .18s}
+.sb-days a.on .sb-dot,.sb-days a:hover .sb-dot{background:var(--gold)}
+.sb-foot{margin-top:auto;padding:.9rem 1.5rem;font-family:var(--fu);font-size:.58rem;color:rgba(203,213,232,.2);text-transform:uppercase;letter-spacing:.1em;border-top:1px solid rgba(255,255,255,.05)}
+
+/* ─── MAIN ─────────────────────────────── */
+#main{margin-left:var(--sw);flex:1}
+
+/* ─── COVER ─────────────────────────────── */
+#cover{position:relative;height:100vh;min-height:580px;display:flex;align-items:flex-end;overflow:hidden}
+#cover .cbg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1499678329028-101435549a4e?auto=format&fit=crop&w=1600&q=80');background-size:cover;background-position:center 55%}
+#cover .cbg::after{content:'';position:absolute;inset:0;background:linear-gradient(170deg,rgba(26,35,53,.15) 0%,rgba(26,35,53,.5) 45%,rgba(26,35,53,.88) 100%)}
+.cc{position:relative;z-index:1;padding:3.5rem 5rem}
+.cc-lbl{font-family:var(--fu);font-size:.62rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;color:var(--gold-l);margin-bottom:.9rem;display:flex;align-items:center;gap:.75rem}
+.cc-lbl::before{content:'';display:inline-block;width:2rem;height:1px;background:var(--gold-l)}
+.cc h1{font-family:var(--fw);font-size:clamp(3.5rem,7vw,6.5rem);font-weight:300;color:#FAF4E8;line-height:.95;letter-spacing:-.01em;margin-bottom:.2rem}
+.cc h1 em{font-style:italic;color:var(--gold-l)}
+.cc-sub{font-family:var(--fw);font-style:italic;font-size:clamp(1.1rem,2.2vw,1.8rem);font-weight:300;color:rgba(250,244,232,.65);margin-bottom:2rem}
+.cc-meta{display:flex;gap:2.5rem;flex-wrap:wrap}
+.cc-mi{font-family:var(--fu);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(232,212,153,.75)}
+.cc-mi strong{display:block;font-family:var(--fw);font-size:1.05rem;font-weight:400;color:#FAF4E8;text-transform:none;letter-spacing:0;margin-bottom:.1rem}
+
+/* ─── OVERVIEW STRIP (navy) ───────────────── */
+.ov{background:var(--navy);color:rgba(203,213,232,.8);padding:2.5rem 5rem}
+.ov h2{font-family:var(--fw);font-size:1.7rem;font-weight:300;color:#FAF4E8;margin-bottom:.35rem}
+.ov-sub{font-family:var(--fu);font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(203,213,232,.4);margin-bottom:1.5rem}
+.ov-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem}
+.ov-stop{position:relative;padding-right:1rem}
+.ov-n{font-family:var(--fw);font-size:2.2rem;font-weight:300;color:rgba(232,212,153,.15);line-height:1;position:absolute;top:-.4rem;right:.5rem;pointer-events:none}
+.ov-ctry{font-family:var(--fu);font-size:.56rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);margin-bottom:.15rem}
+.ov-city{font-family:var(--fw);font-size:1.35rem;font-weight:400;color:#FAF4E8;line-height:1.05}
+.ov-dates{font-family:var(--fu);font-size:.64rem;color:rgba(203,213,232,.45);margin-top:.15rem}
+.ov-nts{display:inline-block;margin-top:.4rem;padding:.12rem .55rem;background:rgba(255,255,255,.05);border-radius:20px;font-family:var(--fu);font-size:.57rem;color:rgba(203,213,232,.5);letter-spacing:.07em}
+
+/* ─── PAGE SECTION ──────────────────────── */
+.ps{padding:2.5rem 5rem}
+.ps h2{font-family:var(--fw);font-size:1.9rem;font-weight:300;color:var(--ink);margin-bottom:1.25rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
+
+/* ─── BOOKING TABLE ─────────────────────── */
+.bt{width:100%;border-collapse:collapse;font-family:var(--fu);font-size:.71rem}
+.bt th{text-align:left;font-weight:600;font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:.45rem .7rem;border-bottom:1px solid var(--border)}
+.bt td{padding:.55rem .7rem;border-bottom:1px solid rgba(212,196,168,.3);color:var(--ink);vertical-align:top;line-height:1.5}
+.bt tr:last-child td{border-bottom:none}
+.bt td:first-child{color:var(--terra);font-weight:500}
+.cnum{font-family:var(--fw);font-size:.9rem;color:var(--sky)}
+
+/* ─── DIVIDER ───────────────────────────── */
+.div-lbl{display:flex;align-items:center;gap:1rem;padding:1.25rem 5rem 0;font-family:var(--fu);font-size:.58rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}
+.div-lbl::before,.div-lbl::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ─── CITY HERO ─────────────────────────── */
+.ch{position:relative;height:360px;display:flex;align-items:flex-end;overflow:hidden}
+.ch-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease}
+.ch:hover .ch-bg{transform:scale(1.02)}
+.ch-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,35,53,.1) 0%,rgba(26,35,53,.78) 100%)}
+.ch-ghost{position:absolute;bottom:-.15em;right:2.5rem;font-family:var(--fw);font-size:clamp(6rem,14vw,13rem);font-weight:700;font-style:italic;color:rgba(255,255,255,.05);line-height:1;pointer-events:none;text-transform:uppercase;letter-spacing:-.03em;user-select:none}
+.ch-c{position:relative;z-index:1;padding:2rem 5rem;width:100%}
+.ch-tag{font-family:var(--fu);font-size:.58rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold-l);margin-bottom:.4rem;display:flex;align-items:center;gap:.55rem}
+.ch-tag::before{content:'';display:inline-block;width:1.25rem;height:1px;background:var(--gold-l)}
+.ch-name{font-family:var(--fw);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:#FAF4E8;line-height:.95;letter-spacing:.02em}
+.ch-dates{font-family:var(--fw);font-style:italic;font-size:1.05rem;font-weight:300;color:rgba(250,244,232,.6);margin-top:.2rem}
+.ch-hotel{margin-top:.4rem;font-family:var(--fu);font-size:.62rem;text-transform:uppercase;letter-spacing:.09em;color:rgba(232,212,153,.55)}
+
+/* ─── DAY BLOCK ─────────────────────────── */
+.days{padding:0 4rem 2.5rem;background:var(--bg)}
+.day{position:relative;padding:2.25rem 0 1.75rem;border-bottom:1px solid var(--border)}
+.day:last-child{border-bottom:none}
+.day-gn{position:absolute;top:1.25rem;right:0;font-family:var(--fw);font-size:8rem;font-weight:700;font-style:italic;color:rgba(43,29,14,.04);line-height:1;pointer-events:none;user-select:none}
+.day-hd{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.25rem}
+.day-num{font-family:var(--fw);font-size:.95rem;font-weight:300;color:var(--terra);letter-spacing:.05em;flex-shrink:0}
+.day-date{font-family:var(--fw);font-size:1.45rem;font-weight:400;color:var(--ink);line-height:1.1}
+.day-tl{font-family:var(--fw);font-style:italic;font-size:.95rem;color:var(--muted);margin-top:.1rem}
+
+/* ─── TRANSPORT BANNER ──────────────────── */
+.tb{background:var(--navy);color:rgba(203,213,232,.85);border-radius:3px;padding:.7rem 1.1rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.tb-ico{font-size:1.1rem;flex-shrink:0}
+.tb-d{font-family:var(--fu);font-size:.7rem;flex:1}
+.tb-d strong{color:#FAF4E8;font-weight:500}
+.tb-rt{font-family:var(--fw);font-size:.95rem;color:var(--gold-l);font-weight:400;line-height:1.3}
+.tb-aside{font-family:var(--fu);font-size:.63rem;color:rgba(203,213,232,.55);line-height:1.6;flex-shrink:0}
+
+/* ─── PERIOD ────────────────────────────── */
+.period{display:flex;gap:.85rem;margin-bottom:.75rem}
+.period:last-child{margin-bottom:0}
+.p-lbl{font-family:var(--fu);font-size:.56rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);writing-mode:vertical-rl;transform:rotate(180deg);flex-shrink:0;padding:.5rem 0;opacity:.65}
+.p-body{flex:1;background:var(--card);border-radius:3px;padding:.9rem 1.1rem;border-left:2px solid var(--border)}
+.p-body.t{border-left-color:var(--terra)}
+.p-body.n{border-left-color:var(--sky)}
+.p-body.o{border-left-color:var(--olive)}
+.p-body.g{border-left-color:var(--gold)}
+.p-body.p{border-left-color:#9C3D6E}
+.tlbl{font-family:var(--fu);font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.tlbl::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ─── ITEM ROW ──────────────────────────── */
+.ir{display:flex;gap:.65rem;padding:.45rem 0;border-bottom:1px solid rgba(212,196,168,.25);align-items:flex-start}
+.ir:last-child{border-bottom:none;padding-bottom:0}
+.ir-ico{font-size:.85rem;margin-top:.1rem;flex-shrink:0;width:1.1rem;text-align:center}
+.ir-b{flex:1;min-width:0}
+.ir-name{font-family:var(--fw);font-size:.98rem;font-weight:500;color:var(--ink);line-height:1.2}
+.ir-name a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(196,88,42,.28);transition:border-color .18s}
+.ir-name a:hover{border-color:var(--terra)}
+.ir-desc{font-family:var(--fb);font-size:.76rem;color:var(--muted);margin-top:.12rem;line-height:1.5}
+.ir-meta{display:flex;gap:.4rem;margin-top:.28rem;flex-wrap:wrap;align-items:center}
+
+/* ─── BADGES ────────────────────────────── */
+.b{display:inline-flex;align-items:center;font-family:var(--fu);font-size:.56rem;font-weight:500;padding:.13rem .48rem;border-radius:2px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.b-pr{background:rgba(92,113,80,.1);color:#3A5228}
+.b-fr{background:rgba(92,113,80,.16);color:#2E4820;font-weight:600}
+.b-bk{background:rgba(196,88,42,.1);color:#8A3010}
+.b-ti{background:rgba(196,148,50,.1);color:#7A4E08}
+.b-he{background:rgba(160,60,110,.09);color:#7A2A50}
+.b-av{background:rgba(92,113,80,.1);color:#3A5228}
+.b-zt{background:rgba(180,40,40,.1);color:#8A1C1C}
+.b-ma{background:rgba(42,94,160,.09);color:#1A3A7A;text-decoration:none}
+
+/* ─── ALERTS ────────────────────────────── */
+.al{padding:.85rem 1.05rem;border-radius:3px;display:flex;gap:.65rem;margin:.4rem 0;font-family:var(--fu);font-size:.7rem;line-height:1.55}
+.al-i{font-size:.95rem;flex-shrink:0;margin-top:.05rem}
+.al strong{font-weight:600;display:block;margin-bottom:.15rem;font-size:.73rem}
+.al-bk{background:rgba(196,88,42,.07);border-left:3px solid var(--terra);color:#7A2E08}
+.al-wn{background:var(--amber-bg);border-left:3px solid var(--amber);color:#7A4808}
+.al-ev{background:var(--event);border-left:3px solid var(--gold);color:#6A4A08}
+.al-in{background:rgba(42,94,160,.06);border-left:3px solid rgba(42,94,160,.35);color:#1A3868}
+
+/* ─── BOOKING ALERTS GRID ───────────────── */
+.al-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:.6rem;margin-bottom:1.75rem}
+
+/* ─── WEDDING BANNER ────────────────────── */
+.wb{background:linear-gradient(135deg,#F5EDD4 0%,#EDE0BE 100%);border:1px solid #C8A848;border-radius:3px;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:.9rem;margin-bottom:.9rem}
+.wb-ico{font-size:1.8rem;flex-shrink:0}
+.wb h4{font-family:var(--fw);font-size:1.15rem;font-weight:500;color:#6A4808}
+.wb p{font-family:var(--fu);font-size:.63rem;color:#8A6220;text-transform:uppercase;letter-spacing:.1em;margin-top:.1rem}
+
+/* ─── PRACTICAL ─────────────────────────── */
+.prac{background:var(--navy);color:rgba(203,213,232,.8);padding:2.5rem 5rem}
+.prac h2{font-family:var(--fw);font-size:1.8rem;font-weight:300;color:#FAF4E8;margin-bottom:1.75rem;padding-bottom:.6rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.prac-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5rem}
+.pcard{background:rgba(255,255,255,.04);border-radius:3px;padding:1.1rem}
+.pcard h3{font-family:var(--fu);font-size:.6rem;text-transform:uppercase;letter-spacing:.13em;color:var(--gold);margin-bottom:.65rem}
+.pcard ul{list-style:none;font-family:var(--fu);font-size:.69rem;line-height:1.85;color:rgba(203,213,232,.7)}
+.pcard ul li strong{color:rgba(203,213,232,.95);font-weight:500}
+
+/* ─── FOOTNOTE ──────────────────────────── */
+.fn{background:var(--bg);padding:1.25rem 5rem;font-family:var(--fu);font-size:.6rem;color:var(--muted);border-top:1px solid var(--border);text-align:center;letter-spacing:.06em}
+
+/* ─── MOBILE ────────────────────────────── */
+.mob-btn{display:none !important}
+@media(max-width:900px){
+  :root{--sw:0px}
+  #sb{transform:translateX(-100%);width:240px;transition:transform .3s ease}
+  #sb.open{transform:translateX(0)}
+  #main{margin-left:0}
+  .mob-btn{display:flex !important;position:fixed;top:.85rem;left:.85rem;z-index:200;background:var(--navy);color:var(--gold-l);border:none;padding:.45rem .7rem;border-radius:3px;font-size:.95rem;cursor:pointer}
+  .cc,.ch-c,.days,.ps,.ov,.prac{padding-left:1.5rem;padding-right:1.5rem}
+  .div-lbl{padding-left:1.5rem;padding-right:1.5rem}
+}
+
+/* ─── ANIMATIONS ────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.cc>*{animation:fadeUp .8s ease both}
+.cc>*:nth-child(1){animation-delay:.1s}
+.cc>*:nth-child(2){animation-delay:.25s}
+.cc>*:nth-child(3){animation-delay:.4s}
+.cc>*:nth-child(4){animation-delay:.55s}
+</style>
+</head>
+<body>
+
+<button class="mob-btn" id="mb">☰</button>
+
+<!-- ══════════════ SIDEBAR ══════════════ -->
+<nav id="sb">
+  <div class="sb-brand">
+    <h1>Europa<br><em>em Família</em></h1>
+    <p>4 Jun – 25 Jun · 2026</p>
+  </div>
+
+  <div class="sb-city">
+    <p class="sb-city-lbl">🇪🇸 Barcelona</p>
+    <ul class="sb-days">
+      <li><a href="#d05"><span class="sb-dot"></span>05 Jun · Chegada</a></li>
+      <li><a href="#d06"><span class="sb-dot"></span>06 Jun · Gaudí</a></li>
+      <li><a href="#d07"><span class="sb-dot"></span>07 Jun · Mar & Jardins</a></li>
+      <li><a href="#d08"><span class="sb-dot"></span>08 Jun · Montjuïc</a></li>
+    </ul>
+  </div>
+  <div class="sb-city">
+    <p class="sb-city-lbl">🇪🇸 Valencia</p>
+    <ul class="sb-days">
+      <li><a href="#d09"><span class="sb-dot"></span>09 Jun · Chegada</a></li>
+      <li><a href="#d10"><span class="sb-dot"></span>10 Jun · Oceanogràfic</a></li>
+      <li><a href="#d11"><span class="sb-dot"></span>11 Jun · Praia & Bioparc</a></li>
+    </ul>
+  </div>
+  <div class="sb-city">
+    <p class="sb-city-lbl">🇪🇸 Sevilha</p>
+    <ul class="sb-days">
+      <li><a href="#d12"><span class="sb-dot"></span>12 Jun · Chegada</a></li>
+      <li><a href="#d13"><span class="sb-dot"></span>13 Jun · Alcázar & Flamenco</a></li>
+      <li><a href="#d14"><span class="sb-dot"></span>14 Jun · Catedral</a></li>
+      <li><a href="#d15"><span class="sb-dot"></span>15 Jun · Plaza España</a></li>
+    </ul>
+  </div>
+  <div class="sb-city">
+    <p class="sb-city-lbl">🇮🇹 Lecce</p>
+    <ul class="sb-days">
+      <li><a href="#d16"><span class="sb-dot"></span>16 Jun · Chegada Itália</a></li>
+      <li><a href="#d17"><span class="sb-dot"></span>17 Jun · Centro Histórico</a></li>
+      <li><a href="#d18"><span class="sb-dot"></span>18 Jun · Otranto</a></li>
+    </ul>
+  </div>
+  <div class="sb-city">
+    <p class="sb-city-lbl">🇮🇹 Puglia · Fasano</p>
+    <ul class="sb-days">
+      <li><a href="#d19"><span class="sb-dot"></span>19 Jun · Welcome Party 💍</a></li>
+      <li><a href="#d20"><span class="sb-dot"></span>20 Jun · Casamento 💍</a></li>
+      <li><a href="#d21"><span class="sb-dot"></span>21 Jun · Valle d'Itria</a></li>
+    </ul>
+  </div>
+  <div class="sb-city">
+    <p class="sb-city-lbl">🇮🇹 Bari</p>
+    <ul class="sb-days">
+      <li><a href="#d22"><span class="sb-dot"></span>22 Jun · Bari Vecchia</a></li>
+    </ul>
+  </div>
+  <div class="sb-city">
+    <p class="sb-city-lbl">🇪🇸 Barcelona · Retorno</p>
+    <ul class="sb-days">
+      <li><a href="#d23"><span class="sb-dot"></span>23 Jun · Conexão</a></li>
+      <li><a href="#d24"><span class="sb-dot"></span>24 Jun · Até logo, Europa</a></li>
+    </ul>
+  </div>
+  <div class="sb-city">
+    <p class="sb-city-lbl">Índice</p>
+    <ul class="sb-days">
+      <li><a href="#reservas"><span class="sb-dot"></span>Reservas</a></li>
+      <li><a href="#pratico"><span class="sb-dot"></span>Info Prática</a></li>
+    </ul>
+  </div>
+
+  <div class="sb-foot">7 viajantes · 3 gerações · 21 dias</div>
+</nav>
+
+<!-- ══════════════ MAIN ══════════════ -->
+<div id="main">
+
+<!-- COVER -->
+<section id="cover">
+  <div class="cbg"></div>
+  <div class="cc">
+    <p class="cc-lbl">Roteiro de Viagem · Família Serafim</p>
+    <h1>Europa <em>em</em><br>Família</h1>
+    <p class="cc-sub">Espanha &amp; Sul da Itália · junho de 2026</p>
+    <div class="cc-meta">
+      <div class="cc-mi"><strong>4 jun → 25 jun</strong>21 dias de viagem</div>
+      <div class="cc-mi"><strong>7 viajantes</strong>3 gerações</div>
+      <div class="cc-mi"><strong>6 cidades</strong>BCN · VLC · SVQ · Lecce · Puglia · Bari</div>
+      <div class="cc-mi"><strong>1 casamento</strong>Carol &amp; César · 20 jun · Fasano</div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="ov">
+  <h2>Visão Geral da Viagem</h2>
+  <p class="ov-sub">Thiago · Ariana · Helena · Agostinho · Maria Celeste · Ramon · Juliana</p>
+  <div class="ov-grid">
+    <div class="ov-stop"><span class="ov-n">01</span><p class="ov-ctry">🇪🇸 Espanha</p><p class="ov-city">Barcelona</p><p class="ov-dates">5–9 de junho</p><span class="ov-nts">4 noites · 7 pessoas</span></div>
+    <div class="ov-stop"><span class="ov-n">02</span><p class="ov-ctry">🇪🇸 Espanha</p><p class="ov-city">Valencia</p><p class="ov-dates">9–12 de junho</p><span class="ov-nts">3 noites · 7 pessoas</span></div>
+    <div class="ov-stop"><span class="ov-n">03</span><p class="ov-ctry">🇪🇸 Espanha</p><p class="ov-city">Sevilha</p><p class="ov-dates">12–16 de junho</p><span class="ov-nts">4 noites · 7 pessoas</span></div>
+    <div class="ov-stop"><span class="ov-n">04</span><p class="ov-ctry">🇮🇹 Itália</p><p class="ov-city">Lecce</p><p class="ov-dates">16–19 de junho</p><span class="ov-nts">3 noites · 5 pessoas</span></div>
+    <div class="ov-stop"><span class="ov-n">05</span><p class="ov-ctry">🇮🇹 Itália</p><p class="ov-city">Puglia · Fasano</p><p class="ov-dates">19–22 de junho</p><span class="ov-nts">3 noites · 5 pessoas</span></div>
+    <div class="ov-stop"><span class="ov-n">06</span><p class="ov-ctry">🇮🇹 Itália</p><p class="ov-city">Bari</p><p class="ov-dates">22–23 de junho</p><span class="ov-nts">1 noite · 5 pessoas</span></div>
+    <div class="ov-stop"><span class="ov-n">07</span><p class="ov-ctry">🇪🇸 Espanha</p><p class="ov-city">Barcelona</p><p class="ov-dates">23–24 de junho</p><span class="ov-nts">1 noite · 5 pessoas</span></div>
+  </div>
+</section>
+
+<!-- RESERVAS -->
+<section class="ps" id="reservas">
+  <h2>Reservas &amp; Confirmações</h2>
+  <div class="al-grid">
+    <div class="al al-bk"><span class="al-i">🎟️</span><div><strong>Sagrada Família</strong>sagradafamilia.org · €26/adulto · €21/sênior 65+ · GRÁTIS &lt;10. Reservar semanas antes.</div></div>
+    <div class="al al-bk"><span class="al-i">🎟️</span><div><strong>Parque Güell</strong>parkguell.barcelona · €18/adulto · €13,50/sênior · GRÁTIS &lt;7. Entrada cronometrada.</div></div>
+    <div class="al al-bk"><span class="al-i">🎟️</span><div><strong>Real Alcázar de Sevilha</strong>alcazarsevilla.org · €15,50/adulto · €6/UE 65+ · GRÁTIS &lt;13. Esgota com antecedência.</div></div>
+    <div class="al al-bk"><span class="al-i">🎟️</span><div><strong>Tablao El Arenal — Flamenco</strong>tablaoelarenal.com · ~€50/pessoa · Shows 19h e 20h45 · Menores permitidos!</div></div>
+    <div class="al al-bk"><span class="al-i">🎟️</span><div><strong>Oceanogràfic Valencia</strong>entradas.oceanografic.org · €43,05/adulto · €31,95/criança &amp; sênior · GRÁTIS &lt;4.</div></div>
+    <div class="al al-wn"><span class="al-i">⚠️</span><div><strong>Valencia 12/jun — DIA APERTADO!</strong>Malas prontas na noite anterior. Check-out 07h. Trem 09:15 da Estação Joaquín Sorolla (≠ Estació del Nord).</div></div>
+  </div>
+
+  <table class="bt">
+    <thead><tr><th>Datas</th><th>Hospedagem</th><th>Nts</th><th>Confirmação</th></tr></thead>
+    <tbody>
+      <tr><td>05–09 jun</td><td>Leonardo Hotel Barcelona Gran Via<br><small style="color:var(--muted)">Diputació 100, Eixample</small></td><td>4</td><td><span class="cnum">5221.428.809</span></td></tr>
+      <tr><td>09–12 jun</td><td>MYR Plaza Mercado &amp; Spa<br><small style="color:var(--muted)">Plaza del Mercado 45, Cidade Velha</small></td><td>3</td><td><span class="cnum">6426.741.849</span></td></tr>
+      <tr><td>12–16 jun</td><td>Petit Palace Santa Cruz<br><small style="color:var(--muted)">Muñoz y Pabón 18, Casco Antiguo</small></td><td>4</td><td><span class="cnum">6614.536.334</span></td></tr>
+      <tr><td>16–19 jun</td><td>B&amp;B Il Palazzotto di Luca Luxury<br><small style="color:var(--muted)">Via di Valesio 93, Lecce</small></td><td>3</td><td><span class="cnum">5327.794.224</span></td></tr>
+      <tr><td>19–22 jun</td><td>Masseria San Lorenzo Resort<br><small style="color:var(--muted)">Contrada San Pietro 5, Fasano</small></td><td>3</td><td><span class="cnum">27455WHWM145 · 27455ORMT144</span></td></tr>
+      <tr><td>22–23 jun</td><td>Mövenpick Hotel Bari<br><small style="color:var(--muted)">Via Francesco Lombardi 13</small></td><td>1</td><td><span class="cnum">6443.111.537</span></td></tr>
+      <tr><td>23–24 jun</td><td>BAH Barcelona Airport Hotel<br><small style="color:var(--muted)">Plaza Volatería 3, El Prat de Llobregat</small></td><td>1</td><td><span class="cnum">5622.443.781</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══════════ BARCELONA ══════════ -->
+<div class="div-lbl">Barcelona · Espanha · 5–9 de junho · 4 noites · 7 pessoas</div>
+<section class="ch">
+  <div class="ch-bg" style="background-image:url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=1400&q=80')"></div>
+  <div class="ch-ghost">Barcelona</div>
+  <div class="ch-c">
+    <p class="ch-tag">Espanha · 7 pessoas · Eixample</p>
+    <h2 class="ch-name">Barcelona</h2>
+    <p class="ch-dates">5 a 9 de junho — 4 noites</p>
+    <p class="ch-hotel">🏨 Leonardo Hotel Gran Via · Diputació 100 · Conf. 5221.428.809</p>
+  </div>
+</section>
+<div class="days">
+
+  <div class="day" id="d05">
+    <span class="day-gn">05</span>
+    <div class="day-hd"><span class="day-num">DIA 01</span><div><div class="day-date">Sexta, 5 de junho</div><div class="day-tl">Chegada ao Mediterrâneo — primeiros passos</div></div></div>
+    <div class="al al-in"><span class="al-i">✈️</span><div>Pouso ~08:55 (voo UX7701 de Madrid). <strong>Táxi ao hotel: ~€39–44, 25 min.</strong> Check-in disponível às 15h — deixar bagagem na recepção ao chegar. Café da manhã incluso: 07–11h.</div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body o">
+        <div class="tlbl">09h30 — Bairro Gótico &amp; La Rambla</div>
+        <div class="ir"><span class="ir-ico">🏛️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Barrio+Gotico+Barcelona">Barri Gòtic &amp; La Rambla</a></div><div class="ir-desc">Ruelas medievais, Plaça Reial, Catedral de Barcelona. Atmosfera histórica incomparável a pé.</div><div class="ir-meta"><span class="b b-fr">Grátis</span><span class="b b-ti">⚠️ Cuidado com carteiristas em La Rambla</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🛒</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Mercat+Boqueria+Barcelona">Mercat de la Boqueria</a></div><div class="ir-desc">Chegar antes das 10h para ver o mercado funcionando de verdade. Frutas, jamón, sucos frescos.</div><div class="ir-meta"><span class="b b-fr">Grátis entrar</span><span class="b b-ti">Seg–Sáb 08–20h30</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">20h30 — Jantar · Celebração da chegada</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=El+Nacional+Barcelona+Passeig+de+Gracia">El Nacional Barcelona</a></div><div class="ir-desc">Gastroespaço no Passeig de Gràcia: 4 espaços temáticos num só salão monumental. Interior deslumbrante, espaçoso e acessível para carrinho.</div><div class="ir-meta"><span class="b b-pr">~€30–45/pessoa</span><span class="b b-ti">Passeig de Gràcia, 24 Bis</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d06">
+    <span class="day-gn">06</span>
+    <div class="day-hd"><span class="day-num">DIA 02</span><div><div class="day-date">Sábado, 6 de junho</div><div class="day-tl">O universo imaginário de Gaudí</div></div></div>
+    <div class="al al-bk"><span class="al-i">🎟️</span><div><strong>Reservar semanas antes!</strong> sagradafamilia.org e parkguell.barcelona — ingressos esgotam, especialmente em junho.</div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body n">
+        <div class="tlbl">09h — Sagrada Família (slot mais cedo)</div>
+        <div class="ir"><span class="ir-ico">🏛️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Sagrada+Familia+Barcelona">Sagrada Família</a></div><div class="ir-desc">Catedral inacabada de Gaudí — vitrais que transformam luz em magia. Praça tem playground para Helena. Torres NÃO recomendado para avós e crianças (escadas estreitas).</div><div class="ir-meta"><span class="b b-pr">€26/adulto · €21/sênior 65+ · GRÁTIS &lt;10</span><span class="b b-bk">Reservar! sagradafamilia.org</span><span class="b b-av">✅ Carrinho · Acessível</span><span class="b b-he">❤️ Helena</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name">Almoço — redondezas da Sagrada</div><div class="ir-desc">Cafés e padarias no bairro. Descanso antes da tarde no Güell.</div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Tarde</span>
+      <div class="p-body o">
+        <div class="tlbl">14h — Parque Güell (táxi recomendado ~€10–12)</div>
+        <div class="ir"><span class="ir-ico">🌿</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Park+Guell+Barcelona">Parque Güell — Zona Monumental</a></div><div class="ir-desc">Mosaicos coloridos, lagarto icônico, banco serpentino, vistas da cidade. Espaços abertos para Helena brincar.</div><div class="ir-meta"><span class="b b-pr">€18/adulto · €13,50/sênior · GRÁTIS &lt;7</span><span class="b b-bk">Reservar · Janela 30min</span><span class="b b-ti">Ir de táxi — evitar subida a pé</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">20h — Jantar</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Cerveceria+Catalana+Mallorca+236+Barcelona">Cervecería Catalana</a></div><div class="ir-desc">Tapas catalãs autênticas, adoradas por locais. Sem reserva — chegar antes das 20h. Uma das mais concorridas do Eixample.</div><div class="ir-meta"><span class="b b-pr">~€25–35/pessoa</span><span class="b b-ti">Carrer de Mallorca, 236</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d07">
+    <span class="day-gn">07</span>
+    <div class="day-hd"><span class="day-num">DIA 03</span><div><div class="day-date">Domingo, 7 de junho</div><div class="day-tl">Mar e jardins — dia para Helena</div></div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body o">
+        <div class="tlbl">10h — Praia de Barceloneta</div>
+        <div class="ir"><span class="ir-ico">🏖️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Playa+Barceloneta+Barcelona">Praia de Barceloneta</a></div><div class="ir-desc">Praia urbana acessível. Calçadão plano ideal para carrinho e avós. Água relativamente calma, chuveiros públicos.</div><div class="ir-meta"><span class="b b-fr">Grátis</span><span class="b b-av">✅ Calçadão plano</span><span class="b b-he">❤️ Areia e mar</span><span class="b b-ti">Metrô L4 Barceloneta</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name">Almoço nos chiringuitos</div><div class="ir-desc">Bares de praia com frutos do mar, paella e sangria. Casual e descontraído.</div><div class="ir-meta"><span class="b b-pr">~€20–30/pessoa</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Tarde</span>
+      <div class="p-body o">
+        <div class="tlbl">14h30 — Parc de la Ciutadella</div>
+        <div class="ir"><span class="ir-ico">🌿</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Parc+de+la+Ciutadella+Barcelona">Parc de la Ciutadella</a></div><div class="ir-desc">Lago com barquinhos, playgrounds, Cascada Monumental e a adorada estátua de mamute gigante.</div><div class="ir-meta"><span class="b b-fr">Grátis entrar</span><span class="b b-pr">Barquinhos €7–11 / 30min</span><span class="b b-he">❤️ Barquinhos + playground</span><span class="b b-av">✅ Caminhos planos</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">20h — Jantar + Gelato</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Semproniana+restaurante+Barcelona">Semproniana</a></div><div class="ir-desc">Cozinha catalã e mediterrânea reinventada. Ambiente íntimo no Eixample. 4,4/5 Google.</div><div class="ir-meta"><span class="b b-pr">~€35–45/pessoa</span><span class="b b-ti">Carrer del Rosselló, 148</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🍨</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Gelaaati+di+Marco+Barcelona">Gelaaati di Marco</a></div><div class="ir-desc">Considerado o melhor gelato de Barcelona. Artesanal, sabores criativos. Perfeito para encerrar a noite.</div><div class="ir-meta"><span class="b b-pr">~€4 / 2 bolas</span><span class="b b-ti">Carrer de la Llibreteria, 7</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d08">
+    <span class="day-gn">08</span>
+    <div class="day-hd"><span class="day-num">DIA 04</span><div><div class="day-date">Segunda, 8 de junho</div><div class="day-tl">CosmoCaixa de manhã · Montjuïc à tarde</div></div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body p">
+        <div class="tlbl">10h — CosmoCaixa (Museu de Ciências)</div>
+        <div class="ir"><span class="ir-ico">🔬</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=CosmoCaixa+Barcelona">CosmoCaixa — Museu de Ciências</a></div><div class="ir-desc">Perfeito para 5 anos: Floresta Amazônica indoor com animais reais, sala Toca Toca (3–9 anos), experimentos Snap &amp; Flash, planetário.</div><div class="ir-meta"><span class="b b-fr">GRÁTIS menores 16!</span><span class="b b-pr">€8 adultos</span><span class="b b-he">❤️ PERFEITO para Helena</span><span class="b b-av">✅ Elevadores</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Tarde</span>
+      <div class="p-body n">
+        <div class="tlbl">14h — Montjuïc</div>
+        <div class="ir"><span class="ir-ico">🚠</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Teleferic+Montjuic+Barcelona">Teleféric de Montjuïc</a></div><div class="ir-desc">Cabines panorâmicas até o topo da colina. Chegar: Metrô Paral·lel → Funicular (grátis com T-Casual) → Teleférico.</div><div class="ir-meta"><span class="b b-pr">€19 adulto · €13 criança 4–12</span><span class="b b-av">✅ Cabines acessíveis</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🏰</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Castillo+Montjuic+Barcelona">Castelo de Montjuïc</a></div><div class="ir-desc">Vista 360° de Barcelona e do Mediterrâneo. Grátis domingos após 15h.</div><div class="ir-meta"><span class="b b-pr">€12 adulto · €8 sênior/6–12</span><span class="b b-fr">GRÁTIS dom 15h+</span><span class="b b-he">❤️ Castelo!</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">20h30 — Jantar</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=La+Alcoba+Azul+Barcelona+Barrio+Gotico">La Alcoba Azul</a></div><div class="ir-desc">Restaurante mediterrâneo escondido no Bairro Gótico. Comida autêntica, ambiente íntimo, preços justos.</div><div class="ir-meta"><span class="b b-pr">~€25–35/pessoa</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d09">
+    <span class="day-gn">09</span>
+    <div class="day-hd"><span class="day-num">DIA 05</span><div><div class="day-date">Terça, 9 de junho</div><div class="day-tl">Barcelona → Valencia — e descobrir a cidade das laranjeiras</div></div></div>
+    <div class="tb"><span class="tb-ico">🚂</span><div class="tb-d"><div class="tb-rt">Barcelona-Sants → Valencia E.Nord</div><strong>Euromed 01101 CONFORT</strong> · Partida <strong>10:15</strong> · Chegada <strong>13:13</strong> · 2h58</div><div class="tb-aside">Sair do hotel ≤ 09:15<br>Sants a 15min a pé ou metrô L1</div></div>
+    <div class="period"><span class="p-lbl">Tarde</span>
+      <div class="p-body o">
+        <div class="tlbl">13h30 — Chegada a Valencia · Explorar</div>
+        <div class="ir"><span class="ir-ico">🎪</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Parque+Gulliver+Valencia">Parque Turia + Parque Gulliver</a></div><div class="ir-desc">A 10min do hotel. Gulliver gigante (70m) — Helena pode escalar e escorregar! Parque linear plano e acessível para avós.</div><div class="ir-meta"><span class="b b-fr">Grátis</span><span class="b b-he">❤️ PERFEITO para Helena</span><span class="b b-av">✅ Totalmente plano</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🥤</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Horchateria+Santa+Catalina+Valencia">Horchata na Horchatería Santa Catalina ⭐</a></div><div class="ir-desc">Desde 1836. A 3 minutos do hotel. Horchata com fartones — tradição valenciana imperdível.</div><div class="ir-meta"><span class="b b-pr">~€3–5/pessoa</span><span class="b b-ti">Plaça de Santa Caterina, 6</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">20h30 — Jantar</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=La+Riua+Valencia+Calle+del+Mar">La Riuà</a></div><div class="ir-desc">Valenciano desde 1982, a 5min do hotel. Paella individual autêntica.</div><div class="ir-meta"><span class="b b-pr">~€30–40/pessoa</span><span class="b b-bk">Reservar! +34 963 914 571</span><span class="b b-ti">C/ del Mar, 27</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /days barcelona -->
+
+<!-- ══════════ VALENCIA ══════════ -->
+<div class="div-lbl">Valencia · Espanha · 9–12 de junho · 3 noites · 7 pessoas</div>
+<section class="ch">
+  <div class="ch-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1400&q=80')"></div>
+  <div class="ch-ghost">Valencia</div>
+  <div class="ch-c">
+    <p class="ch-tag">Espanha · 7 pessoas · Kids Friendly</p>
+    <h2 class="ch-name">Valencia</h2>
+    <p class="ch-dates">9 a 12 de junho — 3 noites</p>
+    <p class="ch-hotel">🏨 MYR Plaza Mercado &amp; Spa · Plaza del Mercado 45 · Conf. 6426.741.849</p>
+  </div>
+</section>
+<div class="days">
+
+  <div class="day" id="d10">
+    <span class="day-gn">10</span>
+    <div class="day-hd"><span class="day-num">DIA 06</span><div><div class="day-date">Quarta, 10 de junho</div><div class="day-tl">Debaixo d'água e entre as estrelas</div></div></div>
+    <div class="period"><span class="p-lbl">Dia inteiro</span>
+      <div class="p-body n">
+        <div class="tlbl">10h — Cidade das Artes e Ciências (táxi: ~€8, 10min)</div>
+        <div class="ir"><span class="ir-ico">🐠</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Oceanografic+Valencia">Oceanogràfic ⭐⭐</a></div><div class="ir-desc">Maior aquário da Europa — túnel subaquático, golfinhos, tubarões, zona ártica. Show de golfinhos incluído. Planejar 4–5 horas.</div><div class="ir-meta"><span class="b b-pr">€43,05/adulto · €31,95/criança e sênior · GRÁTIS &lt;4</span><span class="b b-bk">Comprar online! entradas.oceanografic.org</span><span class="b b-he">❤️ Ponto alto da viagem!</span><span class="b b-av">✅ Totalmente acessível</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🔬</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Museo+Ciencias+Principe+Felipe+Valencia">Museu de Ciências Príncipe Felipe</a></div><div class="ir-desc">"Proibido NÃO tocar." Experiências hands-on. Fazer combo com Oceanogràfic (desconto). Opcional se cansativo.</div><div class="ir-meta"><span class="b b-pr">€9,50/adulto · €7,20/criança</span><span class="b b-ti">Combo com Oceanogràfic tem desconto</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">20h — Jantar</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Vaqueta+Gastro+Mercat+Valencia">Vaqueta Gastro Mercat</a></div><div class="ir-desc">Cozinha de mercado, arrozes sazonais. A poucos metros do hotel.</div><div class="ir-meta"><span class="b b-pr">~€25–35/pessoa</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d11">
+    <span class="day-gn">11</span>
+    <div class="day-hd"><span class="day-num">DIA 07</span><div><div class="day-date">Quinta, 11 de junho</div><div class="day-tl">Paella autêntica + animais sem grades</div></div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body o">
+        <div class="tlbl">10h — Praia de Las Arenas / Malvarrosa</div>
+        <div class="ir"><span class="ir-ico">🏖️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Playa+Las+Arenas+Valencia">Praia de Las Arenas</a></div><div class="ir-desc">Ampla e limpa (Bandeira Azul), mar raso e calmo para Helena. Passeio marítimo plano para avós e carrinho.</div><div class="ir-meta"><span class="b b-fr">Grátis</span><span class="b b-he">❤️ Água rasa</span><span class="b b-av">✅ Passeio marítimo plano</span><span class="b b-ti">Ônibus 19/20 ou táxi ~€8</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Almoço</span>
+      <div class="p-body t">
+        <div class="tlbl">13h30 — PAELLA AUTÊNTICA ⭐ (paella = almoço, nunca jantar!)</div>
+        <div class="ir"><span class="ir-ico">🥘</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Casa+Carmela+Valencia+Isabel+Villena">Casa Carmela ⭐ Melhor paella de Valencia</a></div><div class="ir-desc">Desde 1922. Paella valenciana no fogo de lenha — a mais autêntica possível. Terraço à beira-mar.</div><div class="ir-meta"><span class="b b-pr">~€25–35/pessoa</span><span class="b b-bk">RESERVAR com antecedência!</span><span class="b b-ti">C/ Isabel de Villena, 155</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Tarde</span>
+      <div class="p-body o">
+        <div class="tlbl">15h30 — Bioparc Valencia</div>
+        <div class="ir"><span class="ir-ico">🦁</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Bioparc+Valencia">Bioparc Valencia</a></div><div class="ir-desc">Zoo-imersão sem grades aparentes: África, Madagascar, Savana. Caminhos largos e sombreados, perfeito para avós e carrinho.</div><div class="ir-meta"><span class="b b-pr">€29,50/adulto · €22/criança &amp; sênior · GRÁTIS &lt;3</span><span class="b b-he">❤️ Animais de perto!</span><span class="b b-av">✅ Caminhos sombreados</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">20h — Jantar + Sorvete</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Casa+Roberto+Valencia+restaurant">Casa Roberto</a></div><div class="ir-desc">Arrozes e paellas clássicos. Familiar, 35+ anos de tradição. 4,4/5 Google.</div><div class="ir-meta"><span class="b b-pr">~€25–30/pessoa</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🍨</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Heladeria+Llinares+Valencia">Heladerías Llinares</a></div><div class="ir-desc">100+ sabores. Um dos melhores sorvetes da Espanha.</div><div class="ir-meta"><span class="b b-pr">~€3–4/bola</span><span class="b b-ti">C/ dels Brodadors, 8</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d12">
+    <span class="day-gn">12</span>
+    <div class="day-hd"><span class="day-num">DIA 08</span><div><div class="day-date">Sexta, 12 de junho</div><div class="day-tl">Valencia → Sevilha · As Setas iluminam a chegada</div></div></div>
+    <div class="al al-wn"><span class="al-i">⚠️</span><div><strong>DIA MUITO APERTADO — Malas prontas na noite de 11/jun!</strong> Check-out 07h. Táxi imediato para Estação Joaquín Sorolla (~€6, 5min, 1,5km). Estação do AVE é DIFERENTE da Estació del Nord.</div></div>
+    <div class="tb"><span class="tb-ico">🚂</span><div class="tb-d"><div class="tb-rt">Valencia Joaquín Sorolla → Sevilha Santa Justa</div><strong>AVE 03982 CONFORT</strong> · Partida <strong>09:15</strong> · Chegada <strong>13:35</strong> · 4h20</div></div>
+    <div class="period"><span class="p-lbl">Tarde</span>
+      <div class="p-body n">
+        <div class="tlbl">16h30 — Metropol Parasol "Las Setas"</div>
+        <div class="ir"><span class="ir-ico">🏛️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Metropol+Parasol+Sevilla">Metropol Parasol — "Las Setas"</a></div><div class="ir-desc">Estrutura futurista em madeira — mirante panorâmico + espetáculo noturno de luzes. Ingresso inclui Antiquarium romano no subsolo.</div><div class="ir-meta"><span class="b b-pr">~€15 adulto · GRÁTIS &lt;6</span><span class="b b-av">✅ Elevadores</span><span class="b b-he">❤️ Show de luzes</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">20h30 — Jantar · Bar mais antigo da Espanha</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=El+Rinconcillo+Sevilla+Calle+Gerona">Bar El Rinconcillo ⭐ Desde 1670!</a></div><div class="ir-desc">O bar mais antigo de Sevilha. Garçons de gravata, conta escrita a giz na madeira. Pedir: espinacas con garbanzos, pavías de bacalao.</div><div class="ir-meta"><span class="b b-pr">~€20–30/pessoa</span><span class="b b-ti">Calle Gerona, 40 · Ir antes das 21h</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /days valencia -->
+
+<!-- ══════════ SEVILHA ══════════ -->
+<div class="div-lbl">Sevilha · Espanha · 12–16 de junho · 4 noites · 7 pessoas</div>
+<section class="ch">
+  <div class="ch-bg" style="background-image:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1400&q=80')"></div>
+  <div class="ch-ghost">Sevilla</div>
+  <div class="ch-c">
+    <p class="ch-tag">Espanha · 7 pessoas · ⚠️ Calor extremo — até 40°C</p>
+    <h2 class="ch-name">Sevilha</h2>
+    <p class="ch-dates">12 a 16 de junho — 4 noites</p>
+    <p class="ch-hotel">🏨 Petit Palace Santa Cruz · Muñoz y Pabón 18 · Conf. 6614.536.334</p>
+  </div>
+</section>
+<div class="days">
+
+  <div class="al al-wn" style="margin:1.25rem 4rem 0"><span class="al-i">🌡️</span><div><strong>Estratégia obrigatória para o calor sevilhano (33–42°C):</strong> Atividades ao ar livre APENAS antes das 12h e após as 18h. Siesta 14h–17h no hotel. Protetor FPS 50+ e chapéu para todos. Hidratação constante.</div></div>
+
+  <div class="day" id="d13">
+    <span class="day-gn">13</span>
+    <div class="day-hd"><span class="day-num">DIA 09</span><div><div class="day-date">Sábado, 13 de junho</div><div class="day-tl">Palácio mourisco e a alma do flamenco</div></div></div>
+    <div class="al al-bk"><span class="al-i">🎟️</span><div><strong>Real Alcázar — Reservar URGENTE em alcazarsevilla.org</strong> Ingressos esgotam dias antes. Slot 09:30 = mais fresco e menos cheio.</div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body n">
+        <div class="tlbl">09h30 — Real Alcázar</div>
+        <div class="ir"><span class="ir-ico">🏰</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Real+Alcazar+de+Sevilla">Real Alcázar de Sevilha ⭐⭐</a></div><div class="ir-desc">Palácio mourisco com jardins labirínticos, fontes e pavões soltos pelos jardins — Helena vai adorar. Arquitetura mudéjar extraordinária. A 5min a pé do hotel.</div><div class="ir-meta"><span class="b b-pr">€15,50/adulto · €6/UE 65+ · GRÁTIS &lt;13</span><span class="b b-bk">alcazarsevilla.org</span><span class="b b-av">✅ Rampas e elevadores</span><span class="b b-he">❤️ Pavões livres!</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Bodeguita+Romero+Sevilla">Bodeguita Romero ⭐</a></div><div class="ir-desc">Desde 1939. Pedir: <strong>pringá</strong> (cozido desfiado — estrela da casa), salmorejo, rabo de toro. Adorado por sevilhanos.</div><div class="ir-meta"><span class="b b-pr">~€20–25/pessoa</span><span class="b b-ti">Perto da Calle Harinas</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Siesta</span>
+      <div class="p-body">
+        <div class="tlbl">14h–18h — Descanso no hotel (calor máximo)</div>
+        <div class="ir"><span class="ir-ico">😴</span><div class="ir-b"><div class="ir-name">Siesta obrigatória</div><div class="ir-desc">Preparação para o show de flamenco. Helena e avós descansar.</div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body p">
+        <div class="tlbl">18h30 — Jantar + 19h Flamenco 🎭</div>
+        <div class="ir"><span class="ir-ico">🎭</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Tablao+El+Arenal+Sevilla">Tablao El Arenal ⭐⭐ — Flamenco</a></div><div class="ir-desc">50+ anos, fundado por cigano de Triana. New York Times: "o melhor do mundo". <strong>Menores de qualquer idade permitidos.</strong> 110 lugares, ar-condicionado, boa visibilidade. Chegar às 18h30 para jantar antes do show.</div><div class="ir-meta"><span class="b b-pr">~€50–55/pessoa (show + bebida)</span><span class="b b-bk">tablaoelarenal.com · Show 19h</span><span class="b b-he">❤️ Menores permitidos!</span><span class="b b-av">✅ Sentado · Ar-condicionado</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d14">
+    <span class="day-gn">14</span>
+    <div class="day-hd"><span class="day-num">DIA 10</span><div><div class="day-date">Domingo, 14 de junho</div><div class="day-tl">Gótico, rampas e a tumba de Colombo</div></div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body n">
+        <div class="tlbl">09h — Catedral + La Giralda + Archivo</div>
+        <div class="ir"><span class="ir-ico">⛪</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Catedral+de+Sevilla+La+Giralda">Catedral de Sevilha + Torre La Giralda</a></div><div class="ir-desc">3ª maior catedral do mundo. Tumba de Cristóvão Colombo. La Giralda: <strong>34 rampas</strong> (não escadas!) — ideal para avós e carrinho!</div><div class="ir-meta"><span class="b b-pr">€13 online</span><span class="b b-av">✅ Rampas na Giralda!</span><span class="b b-he">❤️ Subir de rampa</span></div></div></div>
+        <div class="ir"><span class="ir-ico">📜</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Archivo+General+de+Indias+Sevilla">Archivo General de Indias</a></div><div class="ir-desc">Patrimônio Mundial. Mapas e documentos das colônias espanholas. Grátis. Prédio renascentista magnífico — com ar-condicionado! Visita rápida 30–40min.</div><div class="ir-meta"><span class="b b-fr">Grátis</span><span class="b b-ti">Ter–Sáb 09:30–17h · Ao lado da Catedral</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Siesta</span>
+      <div class="p-body t">
+        <div class="tlbl">13h — Almoço + Siesta</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Bodega+Santa+Cruz+Las+Columnas+Sevilla">Bar Bodega Santa Cruz "Las Columnas"</a></div><div class="ir-desc">Vista da Giralda. Tapas clássicas: flamenquín, buñuelos de bacalao. Sempre animado, preços justos.</div><div class="ir-meta"><span class="b b-pr">~€15–20/pessoa</span><span class="b b-ti">Esquina Calle Mateos Gago</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">18h30 — Bairro Santa Cruz + Jantar</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=La+Sacristia+Tapas+Sevilla+Mateos+Gago">La Sacristía</a></div><div class="ir-desc">Décor eclesiástico original, tapas de qualidade. Peixe em adobo sevillano, solomillo al whisky.</div><div class="ir-meta"><span class="b b-pr">~€25–35/pessoa</span><span class="b b-ti">Calle Mateos Gago, 18</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d15">
+    <span class="day-gn">15</span>
+    <div class="day-hd"><span class="day-num">DIA 11</span><div><div class="day-date">Segunda, 15 de junho</div><div class="day-tl">A praça mais grandiosa e o parque mais sombrio</div></div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body n">
+        <div class="tlbl">09h — Plaza de España (ir CEDO!)</div>
+        <div class="ir"><span class="ir-ico">🏛️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Plaza+de+España+Sevilla">Plaza de España ⭐⭐</a></div><div class="ir-desc">Um dos cenários mais espetaculares da Europa: canais, 48 nichos de azulejos, arquitetura semi-circular monumental. Passeio de barquinho no canal.</div><div class="ir-meta"><span class="b b-fr">Grátis entrar</span><span class="b b-pr">Barquinhos €6/35min</span><span class="b b-av">✅ Plano, acessível</span><span class="b b-he">❤️ Barquinho!</span><span class="b b-ti">Ir antes das 11h — calor depois</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🌿</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Parque+Maria+Luisa+Sevilla">Parque de María Luisa</a></div><div class="ir-desc">O maior parque de Sevilha. Sombra das palmeiras, lagos com patos, playground. Caminhos planos perfeitos para carrinho e avós.</div><div class="ir-meta"><span class="b b-fr">Grátis</span><span class="b b-he">❤️ Patos, lago, playground</span><span class="b b-av">✅ Bancos e sombra abundante</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Siesta</span>
+      <div class="p-body t">
+        <div class="tlbl">12h30 — Almoço + Siesta + Sorvete</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Bodeguita+Blanco+Cerrillo+Sevilla">Bodeguita Blanco Cerrillo ⭐</a></div><div class="ir-desc">Desde 1926. Boquerones en adobo (50kg/dia!), tapas ~€2. Hábito de locais, longe do circuito turístico.</div><div class="ir-meta"><span class="b b-pr">~€15/pessoa</span><span class="b b-ti">C/ José de Velilla, 1 · Fecha domingos</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">19h30 — Último jantar em Sevilha</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Eslava+Sevilla+tapas+restaurante">Eslava</a></div><div class="ir-desc">Tapas criativas premiadas, adoradas por locais. Uma das melhores cozinhas contemporâneas de Sevilha.</div><div class="ir-meta"><span class="b b-pr">~€25–40/pessoa</span><span class="b b-bk">Reservar!</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d16">
+    <span class="day-gn">16</span>
+    <div class="day-hd"><span class="day-num">DIA 12</span><div><div class="day-date">Terça, 16 de junho</div><div class="day-tl">Sevilha → Bari → Lecce — chegada à Itália</div></div></div>
+    <div class="tb"><span class="tb-ico">✈️</span><div class="tb-d"><div class="tb-rt">SVQ → BCN → BRI</div><strong>VY2223</strong> Sevilha 13:20 → BCN 15:05 · Conexão 55min · <strong>VY6610</strong> BCN 16:00 → <strong>Bari 18:05</strong><br><small style="color:rgba(203,213,232,.5)">5 passageiros · Código OGUNGS · 25kg mala despachada cada</small></div><div class="tb-aside">Check-out até 12h<br>Táxi SVQ sair às 11h40<br>Tarifa fixa ~€28</div></div>
+    <div class="al al-wn"><span class="al-i">🚗</span><div><strong>Retirada do carro em Bari (~18h30)</strong> — Seguir placas "Car Rental Return". Rota para Lecce: ~160km, ~2h. Chegada ao B&amp;B ~22h (check-in até 23:30). Jantar leve próximo ao B&amp;B na chegada.</div></div>
+    <div class="al al-zt al-wn"><span class="al-i">🚦</span><div><strong>ZTL na Itália — NUNCA entrar nos centros históricos de carro!</strong> Câmeras automáticas em toda a Puglia — multas pesadas enviadas ao cartão. Estacionar sempre fora da ZTL e entrar a pé.</div></div>
+  </div>
+
+</div><!-- /days sevilla -->
+
+<!-- ══════════ LECCE ══════════ -->
+<div class="div-lbl">Lecce · Puglia · Itália · 16–19 de junho · 3 noites · 5 pessoas</div>
+<section class="ch">
+  <div class="ch-bg" style="background-image:url('https://images.unsplash.com/photo-1534082421835-c578cdbdd96e?auto=format&fit=crop&w=1400&q=80')"></div>
+  <div class="ch-ghost">Lecce</div>
+  <div class="ch-c">
+    <p class="ch-tag">Puglia · Itália · 5 pessoas · Com carro</p>
+    <h2 class="ch-name">Lecce</h2>
+    <p class="ch-dates">16 a 19 de junho — 3 noites</p>
+    <p class="ch-hotel">🏨 B&amp;B Il Palazzotto di Luca · Via di Valesio 93 · Conf. 5327.794.224</p>
+  </div>
+</section>
+<div class="days">
+
+  <div class="day" id="d17">
+    <span class="day-gn">17</span>
+    <div class="day-hd"><span class="day-num">DIA 13</span><div><div class="day-date">Quarta, 17 de junho</div><div class="day-tl">A Florença do Sul — barroco dourado</div></div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body n">
+        <div class="tlbl">09h30 — Centro histórico a pé · Estacionar fora da ZTL</div>
+        <div class="ir"><span class="ir-ico">🏛️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Basilica+di+Santa+Croce+Lecce">Basilica di Santa Croce ⭐⭐</a></div><div class="ir-desc">Fachada barroca — considerada a mais bela da Puglia. Artesanato em pedra leccese impossível de não fotografar.</div><div class="ir-meta"><span class="b b-fr">Grátis</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🏛️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Piazza+del+Duomo+Lecce">Piazza del Duomo</a></div><div class="ir-desc">Uma das praças mais belas da Itália: catedral, campanário e palazzo del Vescovado em harmonia perfeita.</div><div class="ir-meta"><span class="b b-fr">Grátis</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🏛️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Anfiteatro+Romano+Piazza+Sant+Oronzo+Lecce">Anfiteatro Romano — Piazza Sant'Oronzo</a></div><div class="ir-desc">Anfiteatro do século II no centro da praça principal — visão única no mundo. Helena vai imaginar gladiadores!</div><div class="ir-meta"><span class="b b-fr">Vista da praça: grátis</span><span class="b b-he">❤️ Imaginação ativa</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🏰</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Castello+Carlo+V+Lecce">Castello Carlo V</a></div><div class="ir-desc">Fortaleza aragonesa do século XVI. Exposições temporárias de arte.</div><div class="ir-meta"><span class="b b-pr">€8–10</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Almoço</span>
+      <div class="p-body t">
+        <div class="tlbl">12h30 — Martinucci · imperdível!</div>
+        <div class="ir"><span class="ir-ico">☕</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Caffe+Martinucci+Piazza+Sant+Oronzo+Lecce">Caffè Martinucci Laboratory ⭐⭐</a></div><div class="ir-desc">Ícone de Lecce há 70+ anos. <strong>Pasticciotto di crema e limone</strong> — o doce símbolo da Puglia! Caffè leccese (com leite de amêndoa), rustico leccese.</div><div class="ir-meta"><span class="b b-pr">~€5–10/pessoa</span><span class="b b-he">❤️ Doces mágicos</span><span class="b b-ti">Piazza Sant'Oronzo, 30</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Tarde</span>
+      <div class="p-body o">
+        <div class="tlbl">15h — Gelato + ruas do centro</div>
+        <div class="ir"><span class="ir-ico">🍨</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Gelateria+La+Romana+Lecce">Gelateria La Romana</a></div><div class="ir-desc">4,8/5 Google. Caramelo salgado, pistache, sabores sazonais únicos. Um dos melhores gelatos da Puglia.</div><div class="ir-meta"><span class="b b-pr">€2,50–3,50/bola</span><span class="b b-ti">Via San Francesco d'Assisi, 1</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">20h — Jantar pugliese autêntico</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Alle+Due+Corti+Lecce">Alle Due Corti ⭐</a></div><div class="ir-desc">Cozinha pugliese familiar. Ciceri e tria, orecchiette al ragù, fave e cicoria. Clássico indiscutível de Lecce.</div><div class="ir-meta"><span class="b b-pr">~€25–35/pessoa</span><span class="b b-bk">Reservar!</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d18">
+    <span class="day-gn">18</span>
+    <div class="day-hd"><span class="day-num">DIA 14</span><div><div class="day-date">Quinta, 18 de junho</div><div class="day-tl">Otranto — o fim do mundo e o Adriático cristalino</div></div></div>
+    <div class="al al-in"><span class="al-i">🚗</span><div><strong>Otranto: ~45min de Lecce.</strong> Estacionar no Parcheggio Giovanni Paolo II (fora da ZTL). Centro histórico amuralhado — ruas acessíveis.</div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body n">
+        <div class="tlbl">09h30 — Cidade histórica</div>
+        <div class="ir"><span class="ir-ico">⛪</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Cattedrale+Santa+Maria+Annunziata+Otranto">Catedral de Santa Maria Annunziata ⭐⭐</a></div><div class="ir-desc">Imperdível e gratuita. Mosaico do século XI com ~600.000 peças — "árvore da vida" com cenas bíblicas e medievais. Uma das grandes maravilhas da arte italiana.</div><div class="ir-meta"><span class="b b-fr">GRÁTIS</span><span class="b b-ti">08:30–12:30 e 15:00–19:30</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🏰</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Castello+Aragonese+Otranto">Castelo Aragonese</a></div><div class="ir-desc">Fortaleza do século XV com vista do mar Adriático. Exposições de arte no interior.</div><div class="ir-meta"><span class="b b-pr">€6–10</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Almoço</span>
+      <div class="p-body t">
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Moenia+Ristorante+Otranto">Moenia Ristorante</a></div><div class="ir-desc">Vista do porto histórico. Frutos do mar frescos, orecchiette pugliese. 8,5/10 TheFork.</div><div class="ir-meta"><span class="b b-pr">~€35–50/pessoa</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Tarde</span>
+      <div class="p-body o">
+        <div class="tlbl">13h30 — Praia Torre dell'Orso (25min ao norte)</div>
+        <div class="ir"><span class="ir-ico">🏖️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Spiaggia+Torre+dell+Orso+Puglia">Praia Torre dell'Orso ⭐ Bandeira Azul</a></div><div class="ir-desc">Melhor praia para família na região: areia fina, água cristalina e rasa, turquesa. Helena pode brincar com total segurança.</div><div class="ir-meta"><span class="b b-fr">Área pública: grátis</span><span class="b b-he">❤️ Água rasa e turquesa!</span><span class="b b-av">✅ Infraestrutura completa</span></div></div></div>
+        <div class="ir"><span class="ir-ico">📸</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Faraglioni+di+Sant+Andrea+Puglia">Faraglioni di Sant'Andrea</a></div><div class="ir-desc">14km ao norte de Otranto. Formações rochosas esculpidas pelo mar — o ponto mais fotogênico da costa adriática.</div><div class="ir-meta"><span class="b b-fr">Grátis</span><span class="b b-ti">Estacionamento ~€1,50/h</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">20h30 — Jantar em Lecce</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Pescheria+con+Cottura+Lecce">Pescheria con Cottura — Lecce</a></div><div class="ir-desc">Escolha o peixe no balcão e eles preparam como quiser. Freschíssimo, preços honestos. Experiência única.</div><div class="ir-meta"><span class="b b-pr">~€25–35/pessoa</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d19">
+    <span class="day-gn">19</span>
+    <div class="day-hd"><span class="day-num">DIA 15</span><div><div class="day-date">Sexta, 19 de junho</div><div class="day-tl">Lecce → Ostuni → Monopoli → Fasano → Welcome Party 🥂</div></div></div>
+    <div class="wb"><span class="wb-ico">🥂</span><div class="wb"><h4>Welcome Party — Carol &amp; César</h4><p>19h · Beach Club · Masseria Calderisi · Savelletri di Fasano</p></div></div>
+    <div class="al al-wn"><span class="al-i">⏰</span><div><strong>Check-out às 10h30.</strong> Rota: Lecce → Ostuni (~55min) → Monopoli (~30min) → Fasano (~15min). <strong>Chegar na Masseria San Lorenzo até 15h30</strong> para descanso e preparação. Masseria Calderisi: ~10min de carro.</div></div>
+    <div class="period"><span class="p-lbl">Almoço</span>
+      <div class="p-body o">
+        <div class="tlbl">11h30 — Ostuni (Cidade Branca) · ~1,5h</div>
+        <div class="ir"><span class="ir-ico">🏘️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Ostuni+centro+storico">Ostuni — Centro histórico medieval</a></div><div class="ir-desc">Cidade caiada de branco em colina com vistas do Vale d'Itria. Catedral gótica e mirante panorâmico.</div><div class="ir-meta"><span class="b b-ti">⚠️ Muitas escadas — avós a passo tranquilo</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🥙</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Les+Cre+Fantastique+Ostuni">Les Cré Fantastique</a></div><div class="ir-desc">Panzerotti (pastel frito recheado) — especialidade da região. Lanche rápido e delicioso.</div><div class="ir-meta"><span class="b b-pr">~€3–5/unidade</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Tarde</span>
+      <div class="p-body o">
+        <div class="tlbl">13h30 — Monopoli · ~1h</div>
+        <div class="ir"><span class="ir-ico">🏖️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Monopoli+porto+antico+Puglia">Monopoli — Porto antigo</a></div><div class="ir-desc">Castelo Carlo V, Porta dell'Antico Porto, Santuário Madia. Almoço no Rosso Granato.</div><div class="ir-meta"><span class="b b-ti">Siesta local 13h–16h · Parada de ~1h</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Ristorante+Rosso+Granato+Monopoli">Almoço: Rosso Granato</a></div><div class="ir-meta"><span class="b b-pr">~€25–35/pessoa</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body g">
+        <div class="tlbl">15h20 — Check-in Masseria San Lorenzo + Welcome Party</div>
+        <div class="ir"><span class="ir-ico">🏡</span><div class="ir-b"><div class="ir-name">Check-in · Masseria San Lorenzo Resort · Fasano</div><div class="ir-desc">Family Suite Il Focolare (Thiago + Ariana + Helena) + Superior La Lamia (Agostinho + Maria Celeste). Estacionamento incluso.</div><div class="ir-meta"><span class="b b-ti">Café da manhã incluso · Piscina disponível</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🥂</span><div class="ir-b"><div class="ir-name">18h30 → Partir para Masseria Calderisi (~10min)</div><div class="ir-desc"><strong>19h: Welcome Party do casamento da Carol e César</strong> — Beach Club da Masseria Calderisi, Savelletri di Fasano.</div><div class="ir-meta"><span class="b" style="background:rgba(196,148,50,.15);color:#6A4808">💍 19h em ponto</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /days lecce -->
+
+<!-- ══════════ PUGLIA / FASANO ══════════ -->
+<div class="div-lbl">Puglia · Fasano · Itália · 19–22 de junho · Casamento Carol &amp; César</div>
+<section class="ch">
+  <div class="ch-bg" style="background-image:url('https://images.unsplash.com/photo-1560272564-c83b66b1ad12?auto=format&fit=crop&w=1400&q=80')"></div>
+  <div class="ch-ghost">Puglia</div>
+  <div class="ch-c">
+    <p class="ch-tag">Puglia · Itália · 5 pessoas · Valle d'Itria</p>
+    <h2 class="ch-name">Puglia · Fasano</h2>
+    <p class="ch-dates">19 a 22 de junho — 3 noites + casamento</p>
+    <p class="ch-hotel">🏨 Masseria San Lorenzo Resort · Contrada San Pietro 5, Fasano · Res. 27455WHWM145</p>
+  </div>
+</section>
+<div class="days">
+
+  <div class="day" id="d20">
+    <span class="day-gn">20</span>
+    <div class="day-hd"><span class="day-num">DIA 16</span><div><div class="day-date">Sábado, 20 de junho</div><div class="day-tl">O dia do casamento — manhã leve, tarde inesquecível</div></div></div>
+    <div class="wb"><span class="wb-ico">💍</span><div class="wb"><h4>Cerimônia &amp; Festa — Carol &amp; César</h4><p>17h · Masseria Calderisi · Savelletri di Fasano · ~10min da Masseria San Lorenzo</p></div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body o">
+        <div class="tlbl">10h — Polignano a Mare (LEVE, ~20min de Fasano)</div>
+        <div class="ir"><span class="ir-ico">🌊</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Polignano+a+Mare+centro+storico">Polignano a Mare</a></div><div class="ir-desc">Cidade pitoresca sobre falésias com vista incrível do Adriático. Centro histórico com ruas estreitas, mirante, estátua de Modugno.</div><div class="ir-meta"><span class="b b-ti">⚠️ Ir cedo — estacionamento difícil</span><span class="b b-ti">⚠️ Praia Lama Monachile: pedras — sapatos aquáticos!</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🥪</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Pucceria+Number+One+Polignano+a+Mare">Almoço rápido: Pucceria Number One</a></div><div class="ir-desc">Puccia — sanduíche típico da Puglia. Rápido, saboroso, sem perder tempo.</div><div class="ir-meta"><span class="b b-pr">~€8–12/pessoa</span><span class="b b-ti">Via Annunziata, 1</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Tarde</span>
+      <div class="p-body g">
+        <div class="tlbl">13h — Retorno à masseria · Descanso · Preparação ✨</div>
+        <div class="ir"><span class="ir-ico">🛁</span><div class="ir-b"><div class="ir-name">Descanso + piscina + preparação</div><div class="ir-desc">Janela generosa para nadar, se arrumar, janela de jacuzzi na suíte antes da festa mais aguardada da viagem.</div></div></div>
+        <div class="ir"><span class="ir-ico">💍</span><div class="ir-b"><div class="ir-name">16h30 → Partir para Masseria Calderisi</div><div class="ir-desc"><strong>17h: Cerimônia de Casamento.</strong> Distância ~5–8km / 10min de carro.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d21">
+    <span class="day-gn">21</span>
+    <div class="day-hd"><span class="day-num">DIA 17</span><div><div class="day-date">Domingo, 21 de junho</div><div class="day-tl">Trulli, cidades brancas e o Vale d'Itria</div></div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body o">
+        <div class="tlbl">10h — Locorotondo (~20min de Fasano)</div>
+        <div class="ir"><span class="ir-ico">🏘️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Locorotondo+centro+storico">Locorotondo</a></div><div class="ir-desc">Uma das cidades mais bonitas da Itália. Centro circular branco com vistas do Vale d'Itria salpicado de trulli.</div><div class="ir-meta"><span class="b b-fr">Grátis</span><span class="b b-ti">Parada de ~1,5h</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=La+Braceria+Locorotondo">Almoço: La Braceria ⭐</a></div><div class="ir-desc"><strong>Bombette pugliesi</strong> — carne de porco enrolada com queijo e assada na brasa. O prato mais típico do Vale d'Itria.</div><div class="ir-meta"><span class="b b-pr">~€25–35/pessoa</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Tarde</span>
+      <div class="p-body n">
+        <div class="tlbl">13h30 — Alberobello (UNESCO) · ~15min</div>
+        <div class="ir"><span class="ir-ico">🏚️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Alberobello+Rione+Monti+trulli">Alberobello — Trulli ⭐⭐ UNESCO</a></div><div class="ir-desc">1.500+ trulli (casinhas de telhado cônico branco). Rione Monti e Aia Piccola. Helena vai achar que são casas de duendes!</div><div class="ir-meta"><span class="b b-fr">Rione Monti: GRÁTIS</span><span class="b b-pr">Trullo Sovrano: €2,50</span><span class="b b-he">❤️ Casas de duende!</span><span class="b b-ti">⚠️ Paralelepípedo — usar canguru</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🍨</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Martinucci+Alberobello">Gelato: Martinucci Alberobello</a></div><div class="ir-desc">Terraço com vista dos trulli. Pasticciotto e gelato. Filial da icônica casa de Lecce.</div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Opcional</span>
+      <div class="p-body">
+        <div class="tlbl">16h30 — Castellana Grotte (se houver energia)</div>
+        <div class="ir"><span class="ir-ico">🦇</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Castellana+Grotte+Puglia">Castellana Grotte</a></div><div class="ir-desc">Grutas com estalactites espetaculares. Interior a 16–18°C — levar jaquetas! Opção curta de 50min ideal para avós.</div><div class="ir-meta"><span class="b b-pr">Curta (50min): €15 adulto · €12 sênior</span><span class="b b-pr">Completa (2h): €18 adulto · €15 sênior</span><span class="b b-ti">⚠️ Levar agasalho! · Sem carrinho — canguru grátis</span><span class="b b-he">❤️ Caverna mágica!</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /days puglia -->
+
+<!-- ══════════ BARI ══════════ -->
+<div class="div-lbl">Bari · Puglia · Itália · 22–23 de junho · Devolução do carro</div>
+<section class="ch">
+  <div class="ch-bg" style="background-image:url('https://images.unsplash.com/photo-1592859600972-1b0834d83747?auto=format&fit=crop&w=1400&q=80')"></div>
+  <div class="ch-ghost">Bari</div>
+  <div class="ch-c">
+    <p class="ch-tag">Puglia · Itália · 5 pessoas · Última parada</p>
+    <h2 class="ch-name">Bari</h2>
+    <p class="ch-dates">22 a 23 de junho — 1 noite</p>
+    <p class="ch-hotel">🏨 Mövenpick Hotel Bari · Via Francesco Lombardi 13 · Conf. 6443.111.537</p>
+  </div>
+</section>
+<div class="days">
+
+  <div class="day" id="d22">
+    <span class="day-gn">22</span>
+    <div class="day-hd"><span class="day-num">DIA 18</span><div><div class="day-date">Segunda, 22 de junho</div><div class="day-tl">Bari Vecchia — a Puglia em sua forma mais autêntica</div></div></div>
+    <div class="al al-wn"><span class="al-i">🚗</span><div><strong>Check-out Masseria San Lorenzo até 10h.</strong> Dirigir a Bari (1h). Estacionar perto da Bari Vecchia (~€2/h). Explorar. Devolver carro no aeroporto (~€25–30 táxi ao Mövenpick). Check-in Mövenpick a partir das 15h.</div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body n">
+        <div class="tlbl">11h30 — Bari Vecchia</div>
+        <div class="ir"><span class="ir-ico">🏛️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Basilica+di+San+Nicola+Bari">Basílica di San Nicola ⭐</a></div><div class="ir-desc">GRÁTIS. Túmulo de São Nicolau — o Papai Noel histórico! Cripta românica do século XI, um dos santuários mais importantes da cristandade.</div><div class="ir-meta"><span class="b b-fr">GRÁTIS</span><span class="b b-he">❤️ O Papai Noel original!</span></div></div></div>
+        <div class="ir"><span class="ir-ico">👵</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Arco+Basso+Orecchiette+signora+Nunzia+Bari">Strada delle Orecchiette — Arco Basso ⭐⭐</a></div><div class="ir-desc">Nonnas italianas fazendo orecchiette à mão na porta de casa! Melhor às 10–11h. Comprar massa fresca é obrigatório. (Buscar "signora Nunzia" no Google Maps)</div><div class="ir-meta"><span class="b b-fr">Grátis ver</span><span class="b b-pr">Massa fresca ~€5/pacote</span><span class="b b-he">❤️ Mágico para crianças!</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Almoço</span>
+      <div class="p-body t">
+        <div class="tlbl">12h30 — Street food icônico de Bari</div>
+        <div class="ir"><span class="ir-ico">🐙</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Lo+Sfizio+del+Borgo+Antico+Strada+Vallisa+Bari">Lo Sfizio del Borgo Antico — Sr. Franco ⭐⭐</a></div><div class="ir-desc">Sanduíche de polvo grelhado com stracciatella, tomate seco e azeite. O mais famoso de Bari. 4,7/5 Google. Comer de pé na rua.</div><div class="ir-meta"><span class="b b-pr">€5–8/sanduíche</span><span class="b b-ti">Strada Vallisa, 53</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🟡</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Maria+Sgagliozze+Bari+Strada+Crociate">Sgagliozze da Maria ⭐</a></div><div class="ir-desc">Polenta frita — ícone de Bari. Maria (70+ anos) ainda faz. €2 por 10 pedaços. Comer de pé, como todo barese.</div><div class="ir-meta"><span class="b b-pr">€2 / 10 pedaços (!)</span><span class="b b-ti">Strada delle Crociate, 13</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Tarde</span>
+      <div class="p-body n">
+        <div class="tlbl">14h — Castelo + Lungomare + Gelato</div>
+        <div class="ir"><span class="ir-ico">🏰</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Castello+Svevo+di+Bari">Castello Svevo di Bari</a></div><div class="ir-desc">Fortaleza normando-suábia do século XII. Exposições internas de arte.</div><div class="ir-meta"><span class="b b-pr">€10</span><span class="b b-fr">GRÁTIS menores 18</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🌊</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Lungomare+Nazario+Sauro+Bari">Lungomare</a></div><div class="ir-desc">Passeio à beira-mar — plano, acessível, playground para Helena, pôr do sol ao fundo. Perfeito para avós.</div><div class="ir-meta"><span class="b b-fr">Grátis</span><span class="b b-av">✅ Calçadão plano</span></div></div></div>
+        <div class="ir"><span class="ir-ico">🍨</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Gelateria+Gentile+Bari+Castello+Svevo">Gelateria Gentile ⭐ — Desde 1880!</a></div><div class="ir-desc">Em frente ao Castello Svevo. Gelato + sporcamuss (massa folhada com creme quente). 140+ anos de história.</div><div class="ir-meta"><span class="b b-pr">€3–4/bola</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body t">
+        <div class="tlbl">20h30 — Jantar</div>
+        <div class="ir"><span class="ir-ico">🍽️</span><div class="ir-b"><div class="ir-name"><a href="https://maps.google.com/?q=Anto+Cucina+e+Musica+Bari">Antó Cucina e Musica</a></div><div class="ir-desc">Cozinha barese com música ao vivo. Ambiente informal, adorado por locais. @antocucinaesaporitipici.</div><div class="ir-meta"><span class="b b-pr">~€25–35/pessoa</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day" id="d23">
+    <span class="day-gn">23</span>
+    <div class="day-hd"><span class="day-num">DIA 19</span><div><div class="day-date">Terça, 23 de junho</div><div class="day-tl">Bari → Barcelona — a última noite europeia</div></div></div>
+    <div class="tb"><span class="tb-ico">✈️</span><div class="tb-d"><div class="tb-rt">BRI → BCN</div><strong>Vueling VY6611</strong> · Partida <strong>18:50</strong> · Chegada BCN <strong>21:10</strong> · Código NRZ2XE</div><div class="tb-aside">Sair do hotel às 16:00<br>Aeroporto: 9km / 20min<br>Ou trem: ~€6, 15min</div></div>
+    <div class="al al-wn"><span class="al-i">🚗</span><div><strong>Devolução do carro alugado:</strong> Aeroporto de Bari antes do voo. Placas "Car Rental Return". Reservar 30min para o processo. Devolver com tanque cheio.</div></div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body"><div class="tlbl">21h30 — Chegada BCN · BAH Airport Hotel</div><div class="ir"><span class="ir-ico">🚐</span><div class="ir-b"><div class="ir-name">Shuttle gratuito aeroporto → hotel (24/7)</div><div class="ir-desc">Jantar no La Sal Marina (restaurante do hotel) disponível até tarde. Boa piscina para o dia seguinte!</div><div class="ir-meta"><span class="b b-fr">Shuttle grátis</span></div></div></div></div>
+    </div>
+  </div>
+
+</div><!-- /days bari -->
+
+<!-- ══════════ BCN FINAL ══════════ -->
+<div class="div-lbl">Barcelona · Retorno · 23–24 de junho</div>
+<section class="ch" style="height:260px">
+  <div class="ch-bg" style="background-image:url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=1400&q=80');filter:grayscale(20%)"></div>
+  <div class="ch-ghost" style="font-size:min(8rem,11vw)">Retorno</div>
+  <div class="ch-c">
+    <p class="ch-tag">Espanha · 5 pessoas · Última parada</p>
+    <h2 class="ch-name" style="font-size:3rem">Barcelona · Aeroporto</h2>
+    <p class="ch-dates">23 a 24 de junho — 1 noite</p>
+    <p class="ch-hotel">🏨 BAH Airport Hotel · Plaza Volatería 3, El Prat · Conf. 5622.443.781</p>
+  </div>
+</section>
+<div class="days">
+  <div class="day" id="d24">
+    <span class="day-gn">24</span>
+    <div class="day-hd"><span class="day-num">DIA 20</span><div><div class="day-date">Quarta, 24 de junho</div><div class="day-tl">O merecido descanso — piscina, sol, e até logo Europa</div></div></div>
+    <div class="tb"><span class="tb-ico">✈️</span><div class="tb-d"><div class="tb-rt">BCN → MAD → GRU → CWB</div><strong>UX7708</strong> BCN 20:30 → MAD 22:00 · <strong>UX57</strong> MAD 23:55 → GRU 25/jun · <strong>LA3288</strong> GRU 12:55 → CWB 14:00</div><div class="tb-aside">Shuttle grátis às 18h30<br>Sair para terminal às 18h30</div></div>
+    <div class="period"><span class="p-lbl">Manhã</span>
+      <div class="p-body o">
+        <div class="tlbl">10h — Piscina do hotel ☀️ (RECOMENDADO)</div>
+        <div class="ir"><span class="ir-ico">🏊</span><div class="ir-b"><div class="ir-name">Piscina do BAH Airport Hotel</div><div class="ir-desc">Após 20 dias intensos por 6 cidades, a piscina é o encerramento perfeito. Helena nada, avós relaxam, todos carregam as baterias para o voo noturno.</div><div class="ir-meta"><span class="b b-fr">Incluso</span><span class="b b-he">❤️ Nadar!</span><span class="b b-av">✅ Espreguiçadeiras</span></div></div></div>
+      </div>
+    </div>
+    <div class="period"><span class="p-lbl">Noite</span>
+      <div class="p-body n">
+        <div class="tlbl">18h30 — Shuttle gratuito para o aeroporto</div>
+        <div class="ir"><span class="ir-ico">🏡</span><div class="ir-b"><div class="ir-name">Até a próxima, Europa.</div><div class="ir-desc">21 dias. 3 países. 6 cidades. 1 casamento. 3 gerações. Incontáveis memórias.</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PRACTICAL ══════════ -->
+<section class="prac" id="pratico">
+  <h2>Informações Práticas</h2>
+  <div class="prac-grid">
+    <div class="pcard"><h3>📞 Emergências</h3><ul>
+      <li><strong>Europa (todos):</strong> 112</li>
+      <li><strong>Espanha · Polícia:</strong> 091</li>
+      <li><strong>Espanha · Ambulância:</strong> 061</li>
+      <li><strong>Itália · Polícia:</strong> 113</li>
+      <li><strong>Itália · Ambulância:</strong> 118</li>
+      <li><strong>Carabinieri:</strong> 112</li>
+      <li><strong>Assist. estrada (ACI):</strong> 803 116</li>
+    </ul></div>
+    <div class="pcard"><h3>📱 Apps Essenciais</h3><ul>
+      <li><strong>Google Maps</strong> — Navegação essencial</li>
+      <li><strong>Google Translate</strong> — Câmera para menus</li>
+      <li><strong>Waze</strong> — Condução na Puglia</li>
+      <li><strong>FreeNow</strong> — Táxi na Espanha</li>
+      <li><strong>TMB App</strong> — Metrô de Barcelona</li>
+      <li><strong>TheFork / ElTenedor</strong> — Reservas restaurantes</li>
+      <li><strong>Hola Barcelona</strong> — Bilhetes transporte</li>
+    </ul></div>
+    <div class="pcard"><h3>💶 Gorjetas</h3><ul>
+      <li><strong>Espanha:</strong> Não obrigatória. 5–10% por serviço excelente. Táxis +€1–2.</li>
+      <li><strong>Itália:</strong> Não obrigatória. Coperto €1–3/pessoa já incluso. 5–10% opcional.</li>
+    </ul></div>
+    <div class="pcard"><h3>🗣️ Espanhol</h3><ul>
+      <li><strong>Por favor / Gracias</strong></li>
+      <li><strong>La cuenta, por favor</strong></li>
+      <li><strong>¿Dónde está...?</strong></li>
+      <li><strong>Mesa para siete</strong></li>
+      <li><strong>¿Tiene ascensor?</strong></li>
+      <li><strong>¿Hay menú infantil?</strong></li>
+    </ul></div>
+    <div class="pcard"><h3>🗣️ Italiano</h3><ul>
+      <li><strong>Per favore / Grazie</strong></li>
+      <li><strong>Il conto, per favore</strong></li>
+      <li><strong>Dov'è...?</strong></li>
+      <li><strong>Tavolo per cinque</strong></li>
+      <li><strong>C'è un ascensore?</strong></li>
+      <li><strong>Buonissimo!</strong></li>
+    </ul></div>
+    <div class="pcard"><h3>🚗 Carro na Puglia</h3><ul>
+      <li><strong>ZTL:</strong> NUNCA entrar nos centros históricos. Câmeras automáticas.</li>
+      <li><strong>Velocidade:</strong> Estrada 130km/h · Cidade 50km/h</li>
+      <li><strong>Pedágios A14:</strong> Paga — aceita cartão</li>
+      <li><strong>Devolução:</strong> 23/jun antes das 18:50. Tanque cheio.</li>
+    </ul></div>
+    <div class="pcard"><h3>☀️ Clima de Junho</h3><ul>
+      <li><strong>Barcelona:</strong> 25–27°C, sol, poucas chuvas</li>
+      <li><strong>Valencia:</strong> 27–30°C, muito seco</li>
+      <li><strong>Sevilha:</strong> 33–42°C ⚠️ Calor extremo</li>
+      <li><strong>Lecce / Puglia:</strong> 28–32°C, pouca chuva</li>
+      <li><strong>Protetor solar:</strong> FPS 50+ para todos</li>
+      <li><strong>Hidratação:</strong> 2L+/dia em Sevilha</li>
+    </ul></div>
+    <div class="pcard"><h3>👶 Para Helena (5 anos)</h3><ul>
+      <li><strong>Carrinho:</strong> Essencial. Pedras em Alberobello — usar canguru</li>
+      <li><strong>Sapatos aquáticos:</strong> Lama Monachile (Polignano)</li>
+      <li><strong>Horário:</strong> Priorizar manhã (energia + menos calor)</li>
+      <li><strong>Siesta:</strong> Respeitar especialmente em Sevilha</li>
+      <li><strong>Destaques:</strong> Oceanogràfic, Gulliver, CosmoCaixa, Trulli</li>
+    </ul></div>
+    <div class="pcard"><h3>👴👵 Agostinho &amp; Maria Celeste</h3><ul>
+      <li><strong>La Giralda:</strong> 34 rampas — totalmente acessível!</li>
+      <li><strong>Alcázar:</strong> Rampas e elevadores disponíveis</li>
+      <li><strong>Bioparc/Oceanogràfic:</strong> Cadeiras de rodas disponíveis</li>
+      <li><strong>Castellana Grotte:</strong> Opção curta 50min recomendada</li>
+      <li><strong>Sevilha:</strong> Siesta estrita, sombra sempre</li>
+      <li><strong>Ritmo:</strong> Pausas frequentes em todos os passeios</li>
+    </ul></div>
+  </div>
+</section>
+
+<footer class="fn">
+  Família Serafim · Europa Junho 2026 · Roteiro preparado com carinho · Boa viagem! ✈️
+</footer>
+
+</div><!-- /main -->
+
+<script>
+const mb=document.getElementById('mb'),sb=document.getElementById('sb');
+mb&&mb.addEventListener('click',()=>sb.classList.toggle('open'));
+document.addEventListener('click',e=>{if(!sb.contains(e.target)&&e.target!==mb)sb.classList.remove('open')});
+const links=document.querySelectorAll('.sb-days a'),days=document.querySelectorAll('.day[id]');
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        const id=e.target.id;
+        links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+id));
+      }
+    });
+  },{threshold:.25,rootMargin:'-8% 0px -55% 0px'});
+  days.forEach(d=>io.observe(d));
+}
+links.forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<900)sb.classList.remove('open')}));
+</script>
+</body>
+</html>
